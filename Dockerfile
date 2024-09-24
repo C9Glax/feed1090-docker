@@ -1,7 +1,9 @@
 ﻿# syntax=docker/dockerfile:1
 FROM --platform=$BUILDPLATFORM debian AS base
 RUN apt-get update \
-	&& apt install --no-install-recommends --no-install-suggests -y ca-certificates wget unzip git gcc make libncurses5-dev zlib1g-dev zlib1g libzstd-dev git build-essential debhelper libusb-1.0-0-dev librtlsdr-dev librtlsdr0 pkg-config libncurses5-dev zlib1g-dev zlib1g
+	&& apt install --no-install-recommends --no-install-suggests -y ca-certificates wget unzip git gcc make libncurses5-dev zlib1g-dev zlib1g libzstd-dev git build-essential debhelper libusb-1.0-0-dev librtlsdr-dev librtlsdr0 pkg-config libncurses5-dev zlib1g-dev zlib1g \
+	&& apt-get autopurge -y \
+	&& apt-get autoclean -y
 	
 FROM --platform=$BUILDPLATFORM base AS runtime
 WORKDIR /publish
