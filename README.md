@@ -10,6 +10,13 @@ Configuration via `docker-compose.yaml`
 
 ## Usage
 
+### Dockerhub
+
+`docker pull glax/feed1090-docker:latest`
+
+
+### Build yourself
+
 ```
 git clone https://github.com/C9Glax/feed1090-docker.git
 cd feed1090-docker
